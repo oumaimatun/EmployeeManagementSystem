@@ -1,5 +1,6 @@
 # Employee Management System
-# #Overview
+
+## Overview
 
 This project implements an Employee Management System using .NET 8 API and Angular, with SQLite for data storage.
 Features
