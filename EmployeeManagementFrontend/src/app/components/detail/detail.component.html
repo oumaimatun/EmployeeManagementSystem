@@ -1,0 +1,15 @@
+<div *ngIf="employee" class="container mt-5 p-4 bg-light rounded" [ngStyle]="{ 'max-width': '600px', 'margin': '0 auto' }">
+
+    <h2 class="mb-4" [ngStyle]="{ 'margin-bottom': '1.5rem' }">{{ employee.firstName }} {{ employee.lastName }}</h2>
+
+    <p class="mb-3" [ngStyle]="{ 'margin-bottom': '1rem' }"><strong>Email:</strong> {{ employee.email }}</p>
+    <p class="mb-3" [ngStyle]="{ 'margin-bottom': '1rem' }"><strong>Phone Number:</strong> {{ employee.phoneNumber }}</p>
+    <p class="mb-3" [ngStyle]="{ 'margin-bottom': '1rem' }"><strong>Position:</strong> {{ employee.position }}</p>
+    <p class="mb-4" [ngStyle]="{ 'margin-bottom': '1.5rem' }"><strong>Department:</strong> {{ employee.department }}</p>
+
+    <div class="d-flex justify-content-between" [ngStyle]="{ 'display': 'flex', 'justify-content': 'space-between' }">
+        <a [routerLink]="['/employees/edit', employee.id]" class="btn btn-primary" [ngStyle]="{ 'margin-top': '10px' }">Edit</a>
+        <a [routerLink]="['/employees']" class="btn btn-secondary" [ngStyle]="{ 'margin-top': '10px' }">Back to List</a>
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg p-4 mb-4">
+    <h1 class="text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+        List of Employees
+    </h1>
+    <table class="w-full mt-4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    First Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Last Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Phone Number
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Position
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Department
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Actions</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ employee.firstName }}</td>
+                <td class="px-6 py-4">{{ employee.lastName }}</td>
+                <td class="px-6 py-4">{{ employee.email }}</td>
+                <td class="px-6 py-4">{{ employee.phoneNumber }}</td>
+                <td class="px-6 py-4">{{ employee.position }}</td>
+                <td class="px-6 py-4">{{ employee.department }}</td>
+                <td class="px-6 py-4 text-right">
+
+                    <a [routerLink]="['/employees', employee.id]" class="btn-action inline-block px-4 py-2 mr-2 font-medium text-blue-600 dark:text-blue-500 hover:underline bg-viewButton hover:bg-viewButton-dark rounded">
+                        View
+                    </a>
+
+                    <a [routerLink]="['/employees/edit', employee.id]" class="btn-action inline-block px-4 py-2 mr-2 font-medium text-blue-600 dark:text-blue-500 hover:underline bg-editButton hover:bg-editButton-dark rounded">
+                        Edit
+                    </a>
+
+                    <button (click)="deleteEmployee(employee.id)" class="btn-action inline-block px-4 py-2 font-medium text-blue-600 dark:text-blue-500 hover:underline bg-deleteButton hover:bg-deleteButton-dark rounded">
+                        Delete
+                    </button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button [routerLink]="['/employees/add']" class="btn btn-primary mt-4">Add Employee</button>
+</div>

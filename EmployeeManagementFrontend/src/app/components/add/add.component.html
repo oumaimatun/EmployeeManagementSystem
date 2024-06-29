@@ -1,0 +1,55 @@
+<div class="container mt-3">
+    <h1 class="text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+        Add New Employee
+    </h1>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="p-4 bg-light rounded">
+        <div class="form-group mb-3">
+            <label for="firstName">First Name</label>
+            <input id="firstName" class="form-control" formControlName="firstName" />
+
+            <div *ngIf="employeeForm.get('firstName')?.invalid && (employeeForm.get('firstName')?.touched || employeeForm.get('firstName')?.dirty)">
+                <small class="text-danger" *ngIf="employeeForm.get('firstName')?.errors?.required">First Name is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" class="form-control" formControlName="lastName" />
+
+            <div *ngIf="employeeForm.get('lastName')?.invalid && (employeeForm.get('lastName')?.touched || employeeForm.get('lastName')?.dirty)">
+                <small class="text-danger" *ngIf="employeeForm.get('lastName')?.errors?.required">Last Name is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" class="form-control" formControlName="email" />
+
+            <div *ngIf="employeeForm.get('email')?.invalid && (employeeForm.get('email')?.touched || employeeForm.get('email')?.dirty)">
+                <small class="text-danger" *ngIf="employeeForm.get('email')?.errors?.required">Email is required</small>
+                <small class="text-danger" *ngIf="employeeForm.get('email')?.errors?.email">Enter a valid email</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input id="phoneNumber" class="form-control" formControlName="phoneNumber" />
+        </div>
+        <div class="form-group">
+            <label for="position">Position</label>
+            <input id="position" class="form-control" formControlName="position" />
+
+            <div *ngIf="employeeForm.get('position')?.invalid && (employeeForm.get('position')?.touched || employeeForm.get('position')?.dirty)">
+                <small class="text-danger" *ngIf="employeeForm.get('position')?.errors?.required">Position is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input id="department" class="form-control" formControlName="department" />
+
+            <div *ngIf="employeeForm.get('department')?.invalid && (employeeForm.get('department')?.touched || employeeForm.get('department')?.dirty)">
+                <small class="text-danger" *ngIf="employeeForm.get('department')?.errors?.required">Department is required</small>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Add Employee</button>
+        </div>
+    </form>
+</div>

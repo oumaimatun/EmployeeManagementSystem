@@ -1,0 +1,54 @@
+<div class="container mt-3">
+
+    <h1 class="text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+        Edit Employee
+    </h1>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="p-4 bg-light rounded">
+        <div class="form-group mb-3">
+            <label for="firstName">First Name</label>
+            <input id="firstName" class="form-control" formControlName="firstName" />
+            <div *ngIf="employeeForm.controls.firstName.invalid && (employeeForm.controls.firstName.dirty || employeeForm.controls.firstName.touched)" class="text-danger">
+                First Name is required.
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" class="form-control" formControlName="lastName" />
+            <div *ngIf="employeeForm.controls.lastName.invalid && (employeeForm.controls.lastName.dirty || employeeForm.controls.lastName.touched)" class="text-danger">
+                Last Name is required.
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="email">Email</label>
+            <input id="email" type="email" class="form-control" formControlName="email" />
+            <div *ngIf="employeeForm.controls.email.invalid && (employeeForm.controls.email.dirty || employeeForm.controls.email.touched)" class="text-danger">
+                Valid Email is required.
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input id="phoneNumber" class="form-control" formControlName="phoneNumber" />
+            <div *ngIf="employeeForm.controls.phoneNumber.invalid && (employeeForm.controls.phoneNumber.dirty || employeeForm.controls.phoneNumber.touched)" class="text-danger">
+                Phone Number is required.
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="position">Position</label>
+            <input id="position" class="form-control" formControlName="position" />
+            <div *ngIf="employeeForm.controls.position.invalid && (employeeForm.controls.position.dirty || employeeForm.controls.position.touched)" class="text-danger">
+                Position is required.
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="department">Department</label>
+            <input id="department" class="form-control" formControlName="department" />
+            <div *ngIf="employeeForm.controls.department.invalid && (employeeForm.controls.department.dirty || employeeForm.controls.department.touched)" class="text-danger">
+                Department is required.
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save Changes</button>
+            <a [routerLink]="['/employees']" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
